@@ -1,3 +1,12 @@
 {
-	"readme": "Here paste your huawei app configuration"
+  "client": {
+    "cp_id": "420051000000002823",
+    "product_id": "736430079244657005",
+    "client_id": "465417425320412352",
+    "client_secret": "FEB91B5991F031C7D37898A8C5A627F512803B8710903C7ECBB4F3BB51CA77FB",
+    "app_id": "103003271",
+    "package_name": "com.petter.mapsapplication",
+    "api_key": "CgB6e3x9q8BYgiKtR9cDnKfti7DpuBrmDvOt5BUB3a7Cjn7U+AWTTXYyLI3uJT3eDk1yTt9g54C4zEOFBVVGAhHt"
+  },
+  "configuration_version": "1.0"
 }
