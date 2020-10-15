@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "373100907148",
+    "firebase_url": "https://notificationgandh-ec812.firebaseio.com",
+    "project_id": "notificationgandh-ec812",
+    "storage_bucket": "notificationgandh-ec812.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:373100907148:android:f9aebbda5c7410a319c9a9",
+        "android_client_info": {
+          "package_name": "com.petter.mapsapplication.google"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "373100907148-0ikjtcl8728ecpqhovmdatm7pg0tt46o.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0uq4od5IYPIcqAgs9XI8WzGukTtXq3Z8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "373100907148-0ikjtcl8728ecpqhovmdatm7pg0tt46o.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

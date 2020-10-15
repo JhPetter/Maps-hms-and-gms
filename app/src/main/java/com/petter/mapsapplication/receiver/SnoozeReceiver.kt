@@ -12,6 +12,7 @@ class SnoozeReceiver : BroadcastReceiver() {
             context,
             NotificationManager::class.java
         ) as NotificationManager
+
         notificationManager.cancelAll()
     }
 }

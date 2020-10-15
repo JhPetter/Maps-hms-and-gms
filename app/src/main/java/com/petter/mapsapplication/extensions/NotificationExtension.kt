@@ -9,41 +9,65 @@ import androidx.core.app.NotificationCompat
 import com.petter.mapsapplication.R
 import com.petter.mapsapplication.maps.MainActivity
 import com.petter.mapsapplication.notification.Notification
-import com.petter.mapsapplication.receiver.SnoozeReceiver
 
-private const val NOTIFICATION_ID = 0
-private const val REQUEST_CODE = 0
-private const val FLAGS = 0
+// Notification ID.
+private val NOTIFICATION_ID = 0
+private val REQUEST_CODE = 0
+private val FLAGS = 0
 
+// TODO: Step 1.1 extension function to send messages (GIVEN)
+/**
+ * Builds and delivers the notification.
+ *
+ * @param context, activity context.
+ */
 fun NotificationManager.sendNotification(notification: Notification, applicationContext: Context) {
+    // Create the content intent for the notification, which launches
+    // this activity
+    // TODO: Step 1.11 create intent
     val contentIntent = Intent(applicationContext, MainActivity::class.java)
+    // TODO: Step 1.12 create PendingIntent
     val contentPendingIntent = PendingIntent.getActivity(
         applicationContext,
         NOTIFICATION_ID,
         contentIntent,
         PendingIntent.FLAG_UPDATE_CURRENT
     )
-
-    val image = BitmapFactory.decodeResource(
+    // TODO: Step 2.0 add style
+    val eggImage = BitmapFactory.decodeResource(
         applicationContext.resources,
-        R.drawable.ic_baseline_notifications_24
+        R.drawable.cooked_egg
     )
+
     val bigPicStyle = NotificationCompat.BigPictureStyle()
-        .bigPicture(image)
+        .bigPicture(eggImage)
         .bigLargeIcon(null)
 
-    val snoozeIntent = Intent(applicationContext, SnoozeReceiver::class.java)
-    val snoozePendingIntent: PendingIntent = PendingIntent.getBroadcast(
-        applicationContext,
-        REQUEST_CODE,
-        snoozeIntent,
-        FLAGS
-    )
 
+    // TODO: Step 2.2 add snooze action
+    /* val snoozeIntent = Intent(applicationContext, SnoozeReceiver::class.java)
+     val snoozePendingIntent: PendingIntent = PendingIntent.getBroadcast(
+         applicationContext,
+         REQUEST_CODE,
+         snoozeIntent,
+         FLAGS
+     )*/
+
+
+    // TODO: Step 1.2 get an instance of NotificationCompat.Builder
+    // Build the notification
     val builder = NotificationCompat.Builder(
         applicationContext,
         applicationContext.getString(R.string.notification_channel_id)
-    ).setSmallIcon(R.drawable.ic_baseline_notifications_24)
+    )
+
+        // TODO: Step 1.8 use the new 'breakfast' notification channel
+
+        // TODO: Step 1.3 set title, text and icon to builder
+
+        // TODO: Step 1.13 set content intent
+
+        .setSmallIcon(R.drawable.cooked_egg)
         .setContentTitle(
             applicationContext
                 .getString(R.string.notification_title)
@@ -51,15 +75,23 @@ fun NotificationManager.sendNotification(notification: Notification, application
         .setContentText(notification.body)
         .setContentIntent(contentPendingIntent)
         .setAutoCancel(true)
-        .setStyle(bigPicStyle)
-        .setLargeIcon(image)
-        .addAction(
-            R.drawable.ic_launcher_foreground,
-            applicationContext.getString(R.string.notification_title),
-            snoozePendingIntent
-        )
-        .setPriority(NotificationCompat.PRIORITY_HIGH)
 
+
+        // TODO: Step 2.1 add style to builder
+        .setStyle(bigPicStyle)
+        .setLargeIcon(eggImage)
+
+        // TODO: Step 2.3 add snooze action
+        /*.addAction(
+            R.drawable.egg_icon,
+            applicationContext.getString(R.string.snooze),
+            snoozePendingIntent
+        )*/
+
+
+        // TODO: Step 2.5 set priority
+        .setPriority(NotificationCompat.PRIORITY_HIGH)
+    // TODO: Step 1.4 call notify
     notify(NOTIFICATION_ID, builder.build())
 }
 

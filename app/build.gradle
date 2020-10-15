@@ -32,6 +32,7 @@ android {
             apply plugin: 'com.huawei.agconnect'
         }
         google {
+            apply plugin: 'com.google.gms.google-services'
             applicationIdSuffix ".google"
         }
     }

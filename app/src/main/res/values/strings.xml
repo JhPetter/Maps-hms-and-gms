@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">MapsApplication</string>
     <string name="notification_channel_id" translatable="false">channel</string>
+    <string name="notification_channel_name" translatable="true">Egg</string>
+
+
+
     <string name="notification_title">Notification</string>
 
     <string name="demo_notification_channel_id" translatable="false">fcm_default_channel</string>
@@ -9,4 +13,6 @@
 
     <string name="message_subscribed">Subscribed to topic</string>
     <string name="message_subscribe_failed">Failed to subscribe to topic</string>
+
+    <string name="eggs_ready">It is time! Bon appetit!</string>
 </resources>

@@ -6,7 +6,7 @@ import com.google.firebase.messaging.FirebaseMessaging
 import com.petter.mapsapplication.R
 import com.petter.mapsapplication.manager.IDemoNotificationManager
 
-class DemoNotificationManager: IDemoNotificationManager {
+class DemoNotificationManager : IDemoNotificationManager {
     override fun subscribeTopic(context: Context, topic: String) {
         FirebaseMessaging.getInstance().subscribeToTopic(topic)
             .addOnCompleteListener { task ->

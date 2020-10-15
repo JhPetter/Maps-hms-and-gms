@@ -6,8 +6,6 @@ import android.content.Context
 import android.graphics.Color
 import android.os.Build
 import android.os.Bundle
-import android.util.AttributeSet
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.petter.mapsapplication.R
 import com.petter.mapsapplication.manager.IDemoNotificationManager
@@ -25,14 +23,16 @@ class MainActivity : AppCompatActivity(), KoinComponent {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         configMap(savedInstanceState)
-    }
-
-    override fun onCreateView(name: String, context: Context, attrs: AttributeSet): View? {
-        configNotification(context)
-        return super.onCreateView(name, context, attrs)
+        configNotification(this)
     }
 
     private fun configNotification(context: Context) {
+
+        createChannel(
+            getString(R.string.notification_channel_id),
+            getString(R.string.notification_channel_name)
+        )
+
         createChannel(
             getString(R.string.demo_notification_channel_id),
             getString(R.string.demo_notification_channel_name)
