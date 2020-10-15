@@ -68,10 +68,7 @@ fun NotificationManager.sendNotification(notification: Notification, application
         // TODO: Step 1.13 set content intent
 
         .setSmallIcon(R.drawable.cooked_egg)
-        .setContentTitle(
-            applicationContext
-                .getString(R.string.notification_title)
-        )
+        .setContentTitle(notification.title)
         .setContentText(notification.body)
         .setContentIntent(contentPendingIntent)
         .setAutoCancel(true)

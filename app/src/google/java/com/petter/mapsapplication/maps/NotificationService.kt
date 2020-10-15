@@ -21,7 +21,7 @@ class NotificationService : INotificationManager, FirebaseMessagingService() {
 
         remoteMessage?.notification?.let {
             Log.d(TAG, "Message Notification Body: ${it.body}")
-            sendNotification(Notification("", it.body ?: ""))
+            sendNotification(Notification(it.title ?: "", it.body ?: ""))
         }
     }
 
