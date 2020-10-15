@@ -49,8 +49,13 @@ dependencies {
     implementation 'org.koin:koin-androidx-viewmodel:2.1.6'
     implementation 'org.koin:koin-androidx-scope:2.1.6'
 
+    implementation 'android.arch.work:work-runtime:1.0.1'
+
     googleImplementation 'com.google.android.gms:play-services-maps:17.0.0'
     googleImplementation 'com.google.maps.android:android-maps-utils:0.6.2'
+    googleImplementation 'com.google.firebase:firebase-core:17.0.0'
+    googleImplementation 'com.google.firebase:firebase-iid:19.0.1'
+    googleImplementation 'com.google.firebase:firebase-messaging:19.0.1'
 
     huaweiImplementation 'com.huawei.hms:maps:5.0.1.300'
 

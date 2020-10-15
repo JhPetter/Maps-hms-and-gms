@@ -15,3 +15,17 @@ R
 "app/src/google/AndroidManifest.xml,c\6\c6c6ea1342c8c7b3e909a4f7a1a2143f24d66912
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+V
+&app/src/huawei/agconnect-services.json,e\7\e71d9122c44c155f8fe7bff9c0eba3c1ca8bcad5
+A
+gradle.properties,2\a\2afbb999f001938c88fa43fc2ef52abf0f8213e4
+o
+?app/src/main/java/com/petter/mapsapplication/MapsApplication.kt,7\d\7d7db5ec744fe7ec57331dcb17bbb29284d08388
+r
+Bapp/src/huawei/java/com/petter/mapsapplication/maps/MapsManager.kt,e\2\e299bf618240f3fe4d85a01f41fabd57f3c511e8
+R
+"app/src/huawei/AndroidManifest.xml,1\c\1c66673b9a1acf5673cd976c3dd7de18d3c010f5
+X
+(gradle/wrapper/gradle-wrapper.properties,f\b\fbe448ebfc3eb2d4e308f6b8b043666f5b57235e
+@
+local.properties,0\7\0712df971a99ac4d2fccb8e0fb19f377f3374cca
