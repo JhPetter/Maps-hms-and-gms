@@ -2,6 +2,17 @@
     package="com.petter.mapsapplication">
 
     <application>
+        <service
+            android:name=".maps.NotificationService"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="com.huawei.push.action.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="push_kit_auto_init_enabled"
+            android:value="true" />
         <meta-data
             android:name="com.huawei.hms.client.appid"
             android:value="appid=103003271" />

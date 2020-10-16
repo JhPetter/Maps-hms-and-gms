@@ -59,6 +59,7 @@ dependencies {
     googleImplementation 'com.google.firebase:firebase-messaging:19.0.1'
 
     huaweiImplementation 'com.huawei.hms:maps:5.0.1.300'
+    huaweiImplementation 'com.huawei.hms:push:5.0.0.300'
 
     testImplementation 'junit:junit:4.13'
     androidTestImplementation 'androidx.test.ext:junit:1.1.2'

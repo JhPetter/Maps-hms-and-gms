@@ -1,16 +1,15 @@
 package com.petter.mapsapplication.maps
 
-
 import android.app.NotificationManager
 import android.util.Log
 import androidx.core.content.ContextCompat
-import com.google.firebase.messaging.FirebaseMessagingService
-import com.google.firebase.messaging.RemoteMessage
+import com.huawei.hms.push.HmsMessageService
+import com.huawei.hms.push.RemoteMessage
 import com.petter.mapsapplication.extensions.sendNotification
 import com.petter.mapsapplication.manager.INotificationService
 import com.petter.mapsapplication.notification.Notification
 
-class NotificationService : INotificationService, FirebaseMessagingService() {
+class NotificationService : INotificationService, HmsMessageService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         Log.d(TAG, "From: ${remoteMessage?.from}")
@@ -25,9 +24,6 @@ class NotificationService : INotificationService, FirebaseMessagingService() {
         }
     }
 
-    override fun onNewToken(token: String?) {
-        sendRegistrationToServer(token)
-    }
 
     override fun sendNotification(notification: Notification) {
         val notificationManager = ContextCompat.getSystemService(
@@ -48,5 +44,4 @@ class NotificationService : INotificationService, FirebaseMessagingService() {
     companion object {
         private const val TAG = "MyFirebaseMsgService"
     }
-
 }
