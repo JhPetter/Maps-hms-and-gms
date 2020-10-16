@@ -1,16 +1,17 @@
 package com.petter.mapsapplication.maps
 
 
-import android.app.NotificationManager
 import android.util.Log
-import androidx.core.content.ContextCompat
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import com.petter.mapsapplication.extensions.sendNotification
-import com.petter.mapsapplication.manager.INotificationService
+import com.petter.mapsapplication.manager.INotificationServiceListener
 import com.petter.mapsapplication.notification.Notification
+import org.koin.core.KoinComponent
+import org.koin.core.inject
 
-class NotificationService : INotificationService, FirebaseMessagingService() {
+class NotificationService : FirebaseMessagingService(), KoinComponent {
+
+    private val listener: INotificationServiceListener by inject()
 
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
         Log.d(TAG, "From: ${remoteMessage?.from}")
@@ -21,28 +22,12 @@ class NotificationService : INotificationService, FirebaseMessagingService() {
 
         remoteMessage?.notification?.let {
             Log.d(TAG, "Message Notification Body: ${it.body}")
-            sendNotification(Notification(it.title ?: "", it.body ?: ""))
+            listener.sendNotification(Notification(it.title ?: "", it.body ?: ""))
         }
     }
 
     override fun onNewToken(token: String?) {
-        sendRegistrationToServer(token)
-    }
-
-    override fun sendNotification(notification: Notification) {
-        val notificationManager = ContextCompat.getSystemService(
-            applicationContext,
-            NotificationManager::class.java
-        ) as NotificationManager
-
-        notificationManager.sendNotification(
-            notification,
-            applicationContext
-        )
-    }
-
-    override fun sendRegistrationToServer(token: String?) {
-        Log.d(TAG, "Refreshed token: $token")
+        listener.sendRegistrationToServer(token)
     }
 
     companion object {
