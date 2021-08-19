@@ -12,6 +12,7 @@ import com.petter.mapsapplication.notification.Notification
 class NotificationService : INotificationService, HmsMessageService() {
 
     override fun onMessageReceived(remoteMessage: RemoteMessage?) {
+        super.onMessageReceived(remoteMessage)
         Log.d(TAG, "From: ${remoteMessage?.from}")
 
         remoteMessage?.data?.let {

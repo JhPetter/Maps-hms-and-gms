@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:373100907148:android:f9aebbda5c7410a319c9a9",
         "android_client_info": {
-          "package_name": "com.petter.mapsapplication.google"
+          "package_name": "com.petter.mapsapplication"
         }
       },
       "oauth_client": [

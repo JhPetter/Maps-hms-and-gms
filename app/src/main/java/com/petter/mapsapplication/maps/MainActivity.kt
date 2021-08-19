@@ -10,10 +10,11 @@ import androidx.appcompat.app.AppCompatActivity
 import com.petter.mapsapplication.R
 import com.petter.mapsapplication.manager.IDemoNotificationManager
 import com.petter.mapsapplication.manager.IMapManager
+import com.petter.mapsapplication.manager.IMapReadyListener
 import org.koin.core.KoinComponent
 import org.koin.core.inject
 
-class MainActivity : AppCompatActivity(), KoinComponent {
+class MainActivity : AppCompatActivity(), KoinComponent, IMapReadyListener {
 
     private val TOPIC = "breakfast"
 
@@ -43,6 +44,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
     private fun configMap(savedInstanceState: Bundle?) {
         mapManager.configMap(this, savedInstanceState)
         val map = mapManager.fetchMapView()
+        mapManager.setOnMapReadyListener(this)
         setContentView(map)
     }
 
@@ -92,4 +94,7 @@ class MainActivity : AppCompatActivity(), KoinComponent {
         }
     }
 
+    override fun onMapReady() {
+        mapManager.setPositionWithMarket(48.893478, 2.334595, 15f)
+    }
 }

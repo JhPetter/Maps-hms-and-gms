@@ -5,11 +5,14 @@ import android.os.Bundle
 import android.view.View
 import com.huawei.hms.maps.*
 import com.huawei.hms.maps.model.LatLng
+import com.huawei.hms.maps.model.MarkerOptions
 import com.petter.mapsapplication.manager.IMapManager
+import com.petter.mapsapplication.manager.IMapReadyListener
 
 class MapsManager : IMapManager, OnMapReadyCallback {
     private lateinit var mapView: MapView
     private lateinit var map: HuaweiMap
+    private var onIMapReadyListener: IMapReadyListener? = null
 
     override fun configMap(context: Context, savedInstanceState: Bundle?) {
         val options = HuaweiMapOptions().apply {
@@ -30,6 +33,10 @@ class MapsManager : IMapManager, OnMapReadyCallback {
     }
 
     override fun fetchMapView(): View = mapView
+    override fun setOnMapReadyListener(onIMapReadyListener: IMapReadyListener) {
+        this.onIMapReadyListener = onIMapReadyListener
+    }
+
     override fun onStart() = mapView.onStart()
 
     override fun onStop() = mapView.onStop()
@@ -44,6 +51,14 @@ class MapsManager : IMapManager, OnMapReadyCallback {
 
     override fun onMapReady(map: HuaweiMap?) {
         map?.let { this.map = map }
-        this.map.moveCamera(CameraUpdateFactory.newLatLngZoom(LatLng(48.893478, 2.334595), 10f))
+        onIMapReadyListener?.onMapReady()
+    }
+
+    override fun setPositionWithMarket(lat: Double, long: Double, zoom: Float) {
+        val place = LatLng(lat, long)
+        with(map) {
+            animateCamera(CameraUpdateFactory.newLatLngZoom(place, zoom))
+            addMarker(MarkerOptions().position(place))
+        }
     }
 }

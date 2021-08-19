@@ -33,7 +33,6 @@ android {
         }
         google {
             apply plugin: 'com.google.gms.google-services'
-            applicationIdSuffix ".google"
         }
     }
 }

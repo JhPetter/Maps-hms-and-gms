@@ -8,6 +8,10 @@ interface IMapManager {
     fun configMap(context: Context, savedInstanceState: Bundle? = null)
     fun fetchMapView(): View
 
+    fun setOnMapReadyListener(onIMapReadyListener: IMapReadyListener)
+
+    fun setPositionWithMarket(lat: Double, long: Double, zoom: Float)
+
     fun onStart()
     fun onStop()
     fun onDestroy()
